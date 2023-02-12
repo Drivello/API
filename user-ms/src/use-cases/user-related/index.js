@@ -1,4 +1,4 @@
-import usersDB from '../data-access/user/index.js'
+import usersDB from '../../data-access/user/index.js'
 import createAddUser from './add-user.js'
 import createValidateUser from './validate-user.js'
 

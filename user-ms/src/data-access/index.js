@@ -1,6 +1,6 @@
-import usersDB from "./user";
+import usersDB from "./user/index.js";
 
-const DB = {
+const DBAccess = {
     usersDB
 }
 

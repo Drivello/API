@@ -1,4 +1,4 @@
-import userController from './user';
+import userController from './user/index.js';
 import notFound from './not-found.js';
 
 const Controller = Object.freeze({

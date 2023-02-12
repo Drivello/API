@@ -1,4 +1,4 @@
-import userService from "./user-related";
+import userService from "./user-related/index.js";
 
 const Services = {
     userService

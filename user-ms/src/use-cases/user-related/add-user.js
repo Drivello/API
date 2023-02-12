@@ -1,4 +1,4 @@
-import createUser from '../../entities/user/index.js';
+import {createUser} from '../../entities/index.js';
 export default function createAddUser({ usersDB }) {
     return async function addUser(userInfo) {
         const user = createUser(userInfo);
