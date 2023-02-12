@@ -1,9 +1,9 @@
 import JWT from './JWT/index.js';
 
-const utils = Object.freeze({
+const Utils = Object.freeze({
     JWT
 });
 
-export default utils;
+export default Utils;
 
 export { JWT };

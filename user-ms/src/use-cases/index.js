@@ -1,10 +1,10 @@
 import userService from "./user-related";
 
-const services = {
+const Services = {
     userService
 }
 
-export default services
+export default Services
 
 export {
     userService,

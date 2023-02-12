@@ -4,7 +4,7 @@ const DB = {
     usersDB
 }
 
-export default DB;
+export default DBAccess;
 
 export {
     usersDB
