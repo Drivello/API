@@ -9,7 +9,7 @@ export default function createAddUser({ usersDB }) {
 
         return usersDB.insert({
             mail : user.getMail(),
-            password : user.getPassword()
+            password : await user.getPassword()
         });
     };
 }

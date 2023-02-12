@@ -1,6 +1,6 @@
-import { JWT } from '../../utils/index.js';
+import { JWT, Encrypt } from '../../utils/index.js';
 import buildCreateUser from './user.js';
 
-const createUser = buildCreateUser(JWT);
+const createUser = buildCreateUser(JWT, Encrypt);
 
 export default createUser;

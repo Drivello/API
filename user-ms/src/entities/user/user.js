@@ -1,14 +1,15 @@
-export default function buildCreateUser(JWT, Encrypter){
+export default function buildCreateUser(JWT, Encrypt){
     return function createUser({
         mail,
-        password // = Encrypter(password)
+        password
     }){
         if(! mail ) throw new Error('User must have an email address') 
         if(! password ) throw new Error('User must have a password') 
 
         return Object.freeze({
             getMail: () => mail,
-            getPassword: () => password,
+            getPassword: () => Encrypt.hash(password),
+            getAuth: (hash) => Encrypt.compare(password, hash),
             getJwt: () => JWT.sign({mail, password})
         })
     }

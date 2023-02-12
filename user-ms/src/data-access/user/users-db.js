@@ -23,9 +23,12 @@ export default function createUserDB({ createDB }) {
         return { _id: result.insertedId, ...userInfo };
     }
 
-    async function loginUser(mail, password) {
+    async function loginUser(mail, getAuth) {
         const db = await createDB();
-        const result = await db.collection('users').findOne({ mail, password });
-        return result;
+        const result = await db.collection('users').findOne({ mail });
+        if (result) {
+            if (await getAuth(result.password)) return result;
+        }
+        return null;
     }
 }
