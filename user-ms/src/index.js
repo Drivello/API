@@ -22,5 +22,4 @@ userMS.get('/user/list', makePrivateExpressCallback(getUsers));
 
 userMS.use(makePublicExpressCallback(notFound));
 
-
 export default userMS;
