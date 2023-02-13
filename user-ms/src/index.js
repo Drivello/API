@@ -3,7 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import { userController, notFound } from './controllers/index.js';
-import { makeCallback } from './utils/index.js';
+import { makePublicExpressCallback, makePrivateExpressCallback } from './middlewares/index.js';
 
 dotenv.config();
 const { BUSINESS_URL } = process.env;
@@ -15,15 +15,12 @@ userMS.use(
 );
 userMS.use(bodyParser.json());
 
-const { authUser, postUser } = userController;
-userMS.get('/user/auth', makeCallback(authUser));
-userMS.post('/user/add', makeCallback(postUser));
+const { authUser, postUser, getUsers } = userController;
+userMS.get('/user/auth', makePublicExpressCallback(authUser));
+userMS.post('/user/add', makePublicExpressCallback(postUser));
+userMS.get('/user/list', makePrivateExpressCallback(getUsers));
 
-userMS.use(makeCallback(notFound));
+userMS.use(makePublicExpressCallback(notFound));
 
-// listen for requests
-// userMS.listen(AUTH_PORT, () => {
-//     console.log(`Server is listening on port ${AUTH_PORT}`);
-// });
 
 export default userMS;

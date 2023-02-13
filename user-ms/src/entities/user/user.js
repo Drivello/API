@@ -10,7 +10,7 @@ export default function buildCreateUser(JWT, Encrypt){
             getMail: () => mail,
             getPassword: () => Encrypt.hash(password),
             getAuth: (hash) => Encrypt.compare(password, hash),
-            getJwt: () => JWT.sign({mail, password})
+            getJwt: () => JWT.sign({mail, isAuthorized: true}),
         })
     }
 }

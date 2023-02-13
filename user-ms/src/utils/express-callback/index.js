@@ -9,7 +9,8 @@ const makeExpressCallback = function(controller) {
       path: req.path,
       headers: {
         'Content-Type': req.get('Content-Type'),
-        'User-Agent': req.get('User-Agent')
+        'User-Agent': req.get('User-Agent'),
+        'Authorization': req.get('Authorization'),
       }
     }
     controller(httpRequest)
